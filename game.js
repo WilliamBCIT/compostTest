@@ -57,17 +57,126 @@ const relPos = {
 
 const waves = [
    // FORMAT: time:TIME TO START IN SECONDS, type:foodTypes.ANY, startRate:FRAMES BETWEEN SPAWNING A NEW FOOD, endRate:AMOUNT OF FOOD SPAWNED IS LERPED BETWEEN startRate AND THIS, length:HOW LONG FOOD WILL BE SPAWNED
-	[{time:1, type:foodTypes.FRUIT, startRate:1.2, endRate:.8, length:20, from:0}],
-	[{time:1, type:foodTypes.VEGETABLE, startRate:.6, endRate:.4, length:20, from:1}],
-	[{time:1, type:foodTypes.LIQUID, startRate:.3, endRate:.2, length:20, from:2}],
-	[{time:1, type:foodTypes.ANY, startRate:2.25, endRate:.1, length:20, from:3}]
+   [{time: 2, type: foodTypes.FRUIT, startRate: .85, endRate: .85, length: 15, from: 0}],
+   [{time: 2, type: foodTypes.FRUIT, startRate: 1, endRate: 1, length: 35, from: 0}],
+   [{time: 2, type: foodTypes.FRUIT, startRate: .8, endRate: .5, length: 10, from: 0}],
+   [{time: 2, type: foodTypes.FRUIT, startRate: 1, endRate: .75, length: 8, from: 0},
+	{time: 12, type: foodTypes.FRUIT, startRate: .525, endRate: .4, length: 15.5, from: 0}],
+   [{time: 2, type: foodTypes.FRUIT, startRate: 1, endRate: .6, length: 10, from: 0},
+    {time: 2.5, type: foodTypes.VEGETABLE, startRate: 1, endRate: .6, length: 10, from: 0},
+    {time: 17.5, type: foodTypes.FRUIT, startRate: .7, endRate: .225, length: 15, from: 0},
+    {time: 17.85, type: foodTypes.VEGETABLE, startRate: .7, endRate: .225, length: 15, from: 0},
+    {time: 31.5, type: foodTypes.FRUIT, startRate: .4, endRate: .175, length: 20, from: 0},
+	{time: 31.5 + .65, type: foodTypes.VEGETABLE, startRate: .4, endRate: .175, length: 20, from: 0}],
+   [{time: 2, type: foodTypes.FRUIT, startRate: .3, endRate: .18, length: 45, from: 0},
+	{time: 2.15, type: foodTypes.VEGETABLE, startRate: .3, endRate: .18, length: 45, from: 0},
+	{time: 7, type: foodTypes.BREAD, startRate: 1, endRate: .667, length: 40, from: 1}],
+   [{time: 2, type: foodTypes.FRUIT, startRate: .3, endRate: .175, length: 35, from: 1},
+	{time: 2.15, type: foodTypes.VEGETABLE, startRate: .3, endRate: .175, length: 35, from: 1},
+	{time: 5.25, type: foodTypes.BREAD, startRate: .8, endRate: .375, length: 30, from: 1}],
+   [{time: 2, type: foodTypes.BREAD, startRate: 1, endRate: .3, length: 32.5, from: 1},
+	{time: 2.5, type: foodTypes.BREAD, startRate: .8, endRate: .1, length: 32.5, from: 1},
+	{time: 22, type: foodTypes.VEGETABLE, startRate: .4, endRate: .1, length: 12.5, from: 0}],
+   [{time: 2, type: foodTypes.BREAD, startRate: .6, endRate: .1, length: 35, from: 0},
+	{time: 2.3, type: foodTypes.VEGETABLE, startRate: .4, endRate: .1, length: 12.5, from: 0},
+	{time: 14.5, type: foodTypes.FRUIT, startRate: .075, endRate: .35, length: 20, from: 1},
+    {time: 14.5, type: foodTypes.MEAT, startRate: 1, endRate: .15, length: 5, from: 2},
+    {time: 19.5, type: foodTypes.MEAT, startRate: .15, endRate: .075, length: 15, from: 2}],
+   [{time: 2, type: foodTypes.MEAT, startRate: .15, endRate: .15, length: 40, from: 1},
+	{time: 2, type: foodTypes.MEAT, startRate: .15, endRate: .0666, length: 20, from: 2},
+	{time: 7, type: foodTypes.FRUIT, startRate: .2, endRate: .1, length: 30, from: 1},
+	{time: 7.1, type: foodTypes.VEGETABLE, startRate: .2, endRate: .1, length: 30, from: 1},
+	{time: 22, type: foodTypes.MEAT, startRate: .1, endRate: .075, length: 20, from: 1}],
+   [{time: 2, type: foodTypes.BREAD, startRate: .2, endRate: .0666, length: 50, from: 2},
+	{time: 2, type: foodTypes.VEGETABLE, startRate: .125, endRate: .0666, length: 50, from: 0},
+	{time: 2, type: foodTypes.FRUIT, startRate: .125, endRate: .075, length: 50, from: 1},
+	{time: 2, type: foodTypes.MEAT, startRate: .1, endRate: .045, length: 50, from: 0},
+	{time: 27, type: foodTypes.MEAT, startRate: .15, endRate: .075, length: 30, from: 2},
+	{time: 27, type: foodTypes.BREAD, startRate: .6, endRate: .1, length: 30, from: 0},
+	{time: 27, type: foodTypes.VEGETABLE, startRate: .4, endRate: .1, length: 30, from: 1},
+	{time: 27, type: foodTypes.FRUIT, startRate: .075, endRate: .35, length: 30, from: 0}],
+   [{time: 2, type: foodTypes.WATER, startRate: .2, endRate: .075, length: 10, from: 0},
+    {time: 12, type: foodTypes.WATER, startRate: .075, endRate: .075, length: 10, from: 0}],
+   [{time: 2, type: foodTypes.BREAD, startRate: .2, endRate: .0666, length: 35, from: 0},
+	{time: 2, type: foodTypes.VEGETABLE, startRate: .125, endRate: .0666, length: 35, from: 1},
+	{time: 2, type: foodTypes.FRUIT, startRate: .125, endRate: .075, length: 35, from: 0},
+	{time: 7, type: foodTypes.WATER, startRate: .1, endRate: .03, length: 30, from: 0},
+	{time: 12, type: foodTypes.WATER, startRate: .09, endRate: .02, length: 25, from: 2},
+	{time: 12, type: foodTypes.MEAT, startRate: .13, endRate: .075, length: 20, from: 1},
+	{time: 12, type: foodTypes.FRUIT, startRate: .155, endRate: 1.05, length: 20, from: 2}],
+   [{time: 2, type: foodTypes.BREAD, startRate: .2, endRate: .0666, length: 37.5, from: 1},
+	{time: 2, type: foodTypes.VEGETABLE, startRate: .125, endRate: .06, length: 37.5, from: 0},
+	{time: 2, type: foodTypes.FRUIT, startRate: .125, endRate: .0666, length: 35.5, from: 2},
+	{time: 7, type: foodTypes.WATER, startRate: .1, endRate: .0233, length: 32.5, from: 1},
+	{time: 12, type: foodTypes.WATER, startRate: .09, endRate: .01666, length: 27.5, from: 0},
+	{time: 12, type: foodTypes.MEAT, startRate: .13, endRate: .0666, length: 22.5, from: 2},
+	{time: 12, type: foodTypes.FRUIT, startRate: .155, endRate: .5, length: 22.5, from: 0}],
+   [{time: 2, type: foodTypes.BREAD, startRate: .2, endRate: .07, length: 50, from: 0},
+	{time: 2, type: foodTypes.VEGETABLE, startRate: .125, endRate: .07, length: 50, from: 1},
+	{time: 2, type: foodTypes.FRUIT, startRate: .125, endRate: .08, length: 50, from: 3},
+	{time: 2, type: foodTypes.MEAT, startRate: .1, endRate: .05, length: 50, from: 2},
+	{time: 15, type: foodTypes.OIL, startRate: .1, endRate: .028, length: 37, from: 0},
+	{time: 27, type: foodTypes.WATER, startRate: .15, endRate: .08, length: 30, from: 1},
+	{time: 27, type: foodTypes.BREAD, startRate: .6, endRate: .15, length: 30, from: 4},
+	{time: 27, type: foodTypes.VEGETABLE, startRate: .4, endRate: .15, length: 30, from: 4},
+	{time: 27, type: foodTypes.FRUIT, startRate: .075, endRate: .4, length: 30, from: 3}]
 ];
+
+const donateUnlockAfter = 1;
+const recyclerUnlockAfter = 3;
+const animalsUnlockAfter = 7;
+const purifierUnlockAfter = 9;
+const factoryUnlockAfter = 11;
 
 var inProgress = [];
 
+var style = new PIXI.TextStyle({
+    fontFamily: 'Arial',
+    fontSize: 20,
+    stroke: '#ffffff',
+    strokeThickness: 30,
+    });
+
+var playericon;
+var stageImg;
+
+var tutorial01 = new PIXI.Text("Health Bar - This will decrease as food is wasted.\nIt's Game Over when it hits zero!", style);
+tutorial01.x = 80;
+tutorial01.y = 123;
+var tutorial02 = new PIXI.Text("Money - Use your savings to invest in towers to help save food.");
+tutorial02.x = 30;
+tutorial02.y = 90;
+var tutorial03 = new PIXI.Text("Score - Gain points by preventing food waste with towers!");
+tutorial03.x = 30;
+tutorial03.y = 90;
+var tutorial04 = new PIXI.Text("Experience Bar - Increase this by saving food to face new challenges.");
+tutorial04.x = 30;
+tutorial04.y = 90;
+var tutorial05 = new PIXI.Text("Garbage Bin - If food on the conveyor belt reaches the bin, you will lose health!");
+tutorial05.x = 30;
+tutorial05.y = 90;
+var tutorial06 = new PIXI.Text("Compost Tower - Inexpensive and accepts anything non-liquid, slow and not greatly profitable.");
+tutorial06.x = 30;
+tutorial06.y = 90;
+var tutorial07 = new PIXI.Text("Animal Tower - Ravenously devours meats.");
+tutorial07.x = 30;
+tutorial07.y = 90;
+var tutorial08 = new PIXI.Text("Factory Tower - Accepts everything except meats. Is not very profitable.");
+tutorial08.x = 30;
+tutorial08.y = 90;
+var tutorial09 = new PIXI.Text("Donation Tower - Expensive and selective, yet quick and profitable.");
+tutorial09.x = 30;
+tutorial09.y = 90;
+var tutorial10 = new PIXI.Text("Recyling Tower - Accepts food and water.");
+tutorial10.x = 30;
+tutorial10.y = 90;
+var tutorial11 = new PIXI.Text("Purifier Tower - Effeciently processes water.");
+tutorial11.x = 30;
+tutorial11.y = 90;
+
 const secondsPerFrame = 1 / 60;
 
-function Init(){
+function Init() {
 	// Initialize game window
 	app = new PIXI.Application(720, 720 + uiMargin * 2, {backgroundColor:0x000000, antialias:true});
 	app.renderer.autoResize = true;
@@ -78,18 +187,18 @@ function Init(){
 	hudStyle = new PIXI.TextStyle({fontFamily:'Arial', fontSize:11});
 
 	// Import textures
-	PIXI.loader.add("logo", "../Pixi/images/logoWhiteBackground.png")
-			   .add("playB", "../Pixi/images/PlayButton.png")
-			   .add("lBoardsB", "../Pixi/images/LeaderboardsButton.png")
+	PIXI.loader.add("logo", "../Pixi/images/menu.png")
+			   .add("playB", "../Pixi/images/PlayBut.png")
+			   .add("lBoardsB", "../Pixi/images/LeaderboardButton.png")
 			   .load(Init2);
 }
 
 function Init2(){
 	let halfWidth = app.renderer.width / 2;
-
-	mmLogo = GetObj(GetSprite("logo", .5, .5, .3, .3), halfWidth, 315, app.stage, relPos.IGNOREMARGIN);
-	mmPlay = GetObj(GetSprite("playB", .5, .5, 1.5, 1.5), halfWidth, 565, app.stage, relPos.IGNOREMARGIN);
-	mmLBoards = GetObj(GetSprite("lBoardsB", .5, .5, 1.5, 1.5), halfWidth, 665, app.stage, relPos.IGNOREMARGIN);
+    
+	mmLogo = GetObj(GetSprite("logo", .5, .5, 1, 1), halfWidth, 480, app.stage, relPos.IGNOREMARGIN);
+	mmPlay = GetObj(GetSprite("playB", .5, .5, 1.5, 1.5), halfWidth, 665, app.stage, relPos.IGNOREMARGIN);
+	mmLBoards = GetObj(GetSprite("lBoardsB", .5, .5, 1.5, 1.5), halfWidth, 785, app.stage, relPos.IGNOREMARGIN);
 
 	mmPlay.interactive = true;
 	mmPlay.buttonMode = true;
@@ -104,8 +213,130 @@ function Init2(){
 	if(app instanceof PIXI.CanvasRenderer) {console.log("CANVAS");} else {console.log("WEBGL");}
 }
 
+var stringS;
+var stringN;
+var stringD;
+var creditContainer;
+var leaderboardJ = 0;
+var ltimer = 3;
+var wtimer = 0;
+
 function ShowLBoards(){
-	// TODO
+    
+    Destroy(mmLogo);
+	Destroy(mmPlay);
+	Destroy(mmLBoards);
+    
+    creditContainer = new PIXI.Container();
+    creditContainer.y = app.screen.height;
+    app.stage.addChild(creditContainer);
+    
+    var blackBox = new PIXI.Graphics();
+    blackBox.beginFill(000000);
+    blackBox.lineStyle(5, 000000);
+    blackBox.drawRect(0, 0, app.screen.width, app.screen.height / 4);
+    app.stage.addChild(blackBox);
+    
+    var blackBox2 = new PIXI.Graphics();
+    blackBox2.beginFill(000000);
+    blackBox2.lineStyle(5, 000000);
+    blackBox2.drawRect(0, app.screen.height - 100, app.screen.width, app.screen.height /4);
+    app.stage.addChild(blackBox2);
+    
+    var lBoardTitle = new PIXI.Text("Leaderboard!", {
+			fontWeight: 'bold',
+			fontSize: 60,
+			fontFamily: 'Arial',
+			fill: '#CD0000',
+			align: 'center',
+			stroke: '#FFFFFF',
+			strokeThickness: 6
+		});
+
+		
+   		lBoardTitle.anchor.set(0.5);
+		lBoardTitle.x = app.screen.width / 2;
+		lBoardTitle.y = app.screen.height / 7;
+        
+        app.stage.addChild(lBoardTitle);
+    
+        stringN = new PIXI.Text(stringName, {
+			fontWeight: 'bold',
+			fontSize: 25,
+			fontFamily: 'Arial',
+			fill: '#6c7a86 ',
+			align: 'left',
+			stroke: '#FFFFFF',
+			strokeThickness: 6
+		});
+
+		
+   		stringN.anchor.set(0.5);
+		stringN.x = app.screen.width / 7 + 70;
+		stringN.y =0;
+        creditContainer.addChild(stringN);
+    
+        stringD = new PIXI.Text(stringDate, {
+			fontWeight: 'bold',
+			fontSize: 25,
+			fontFamily: 'Arial',
+			fill: '#6c7a86 ',
+			align: 'left',
+			stroke: '#FFFFFF',
+			strokeThickness: 6
+		});
+
+		
+   		stringD.anchor.set(0.5);
+		stringD.x = app.screen.width / 7 + 480;
+		stringD.y = 0;
+        creditContainer.addChild(stringD);
+    
+        stringS = new PIXI.Text(stringScore, {
+			fontWeight: 'bold',
+			fontSize: 25,
+			fontFamily: 'Arial',
+			fill: '#6c7a86 ',
+			align: 'left',
+			stroke: '#FFFFFF',
+			strokeThickness: 6
+		});
+
+		
+   		stringS.anchor.set(0.5);
+		stringS.x = app.screen.width / 7 + 300;
+		stringS.y = 0;
+        creditContainer.addChild(stringS);
+        app.ticker.add(delta => leaderboardAnimation(delta));
+    
+}
+
+function leaderboardAnimation(delta) {
+    if (ltimer == 1) {
+          creditContainer.y -= 8 * delta;
+        if (creditContainer.y < -300) 
+            ltimer = 2;
+    }
+    
+    if (ltimer == 2) {
+         creditContainer.y += 9 * delta;
+        if (creditContainer.y > app.screen.height + 300)
+            ltimer = 3;
+    }
+    
+    if (ltimer == 3) {
+          creditContainer.y -= 6 * delta;
+        if (creditContainer.y < app.screen.height / 1.73) 
+            ltimer = 4;
+    }
+    
+    if (ltimer == 4) {
+        wtimer += 5 * delta;
+        if (wtimer > 600) {
+            wtimer = 0;
+            ltimer = 1;
+        }
+    }
 }
 
 function OpenPauseMenu(){
@@ -116,8 +347,9 @@ function ClosePauseMenu(){
 	//pm
 }
 
-const startLives = 100;
-const startMoney = 10000;
+const startLives = 125;
+const startMoney = 420;
+const sellRate = .25;
 
 function StartGame(){
 	Destroy(mmLogo);
@@ -158,6 +390,7 @@ function StartGame(){
     
     var timer;
     var moneyContents;
+    var tester = false;
 
 	// Import textures
 	PIXI.loader.add("whiteBox", "../Pixi/images/WhiteBox.png")
@@ -169,7 +402,12 @@ function StartGame(){
 			   .add("purify", "../Pixi/images/towerWater.png")
 			   .add("garbage", "../Pixi/images/garbageBin.png")
 			   .add("selectUI", "../Pixi/images/towerSelection.png")
-			   .add("stage0", "../Pixi/images/townBackground.png")
+			   .add("stage0", "../Pixi/images/town1.png")
+               .add("stage1", "../Pixi/images/town2.png")
+			   .add("stage2", "../Pixi/images/town3.png")
+			   .add("stage3", "../Pixi/images/town4.png")
+			   .add("stage4", "../Pixi/images/town5.png")
+			   .add("stage5", "../Pixi/images/town6.png")
 			   .add("hud", "../Pixi/images/Compost_HUD.png")
 			   .add("fullHP", "../Pixi/images/HPBeaker.png")
                .add("fullXP", "../Pixi/images/XPBeaker.png")
@@ -178,41 +416,67 @@ function StartGame(){
 			   .add("foodSheet", "../Pixi/images/Food.json")
 			   .add("conveyorSheet", "../Pixi/images/conveyor.json")
                .add("dollar", "../pixi/images/DollarBill.png")
+			   .add("faceNormal", "../pixi/images/face_normal.png")
+               .add("faceGrin", "../pixi/images/face_grin.png")
+               .add("faceFail", "../pixi/images/face_fail.png")
+               .add("faceC1", "../pixi/images/face_chew1.png")
+               .add("faceC2", "../pixi/images/face_chew2.png")
+               .add("faceSad1", "../pixi/images/face_sad1.png")
+               .add("faceSad2", "../pixi/images/face_sad2.png")
+               .add("faceSad3", "../pixi/images/face_sad3.png")
+               .add("faceHappy1", "../pixi/images/face_happy1.png")
+               .add("faceHappy2", "../pixi/images/face_happy2.png")
+               .add("faceHappy3", "../pixi/images/face_happy3.png")
+               .add("nextWave", "../pixi/images/nextWave.png")
 			   .load(StartGame2);
 }
 
 function StartGame2(){
 	stageImg = GetObj(GetSprite("stage0", 0, 0, 1, 1));
 	stageImg.interactive = true;
-	stageImg.buttonMode = true;
-	stageImg.on('pointerdown', PlaceTower);
+	stageImg.buttonMode = false;
+	stageImg.on('pointerdown', function(){Destroy(toPlaceIcon); toPlaceIcon = false; TogglePlacemat(false);});
+	BuildPlacemat();
+	//stageImg.on('touchstart', function(e){mousePos.x = e.pageX; mousePosY = e.pageY; console.log("touch! (" + mousePos.x + " " + mousePos.y + ")")}, true);
 
 	hudBarScale = 720 / 420;
 
 	hud = GetObj(GetSprite("hud", 0, 0, 1, 1), 0, 0, app.stage, relPos.IGNOREMARGIN);
 	hudContainer = new PIXI.Container();
 	app.stage.addChild(hudContainer);
+    
+    //Test tutorial bubble - commented out for demo
+    //app.stage.addChild(tutorial01);
 	
+	waveText = GetObj(new PIXI.Text("Wave: 1", hudStyle), 225, 5, app.stage, relPos.IGNOREMARGIN);
+
 	livesText = new PIXI.Text(lives, hudStyle);
 	livesText.anchor.set(.5, .5);
 	livesText = GetObj(livesText, 425.5, 52.5, app.stage, relPos.IGNOREMARGIN);
 	hpBar = GetObj(GetSprite("fullHP", 0, 0, hudBarScale, hudBarScale), 80 * hudBarScale, 13 * hudBarScale + 20, hudContainer, relPos.IGNOREMARGIN);
 	hpMask = GetObj(GetSprite("barMask", 0, 0, hudBarScale, hudBarScale), 81 * hudBarScale, 13 * hudBarScale + 20, hudContainer, relPos.IGNOREMARGIN);
 	hpBar.mask = hpMask;
+	hpText = GetObj(new PIXI.Text(lives / startLives * 100 + "%", hudStyle), hpBar.x + hpBar.width / 2, hpBar.y + 1, app.stage, relPos.IGNOREMARGIN);
 
 	xpBar = GetObj(GetSprite("fullXP", 0, 0, hudBarScale, hudBarScale), 110 * hudBarScale, 38 * hudBarScale + 20, hudContainer, relPos.IGNOREMARGIN);
 	xpMask = GetObj(GetSprite("barMask", 0, 0, 0, hudBarScale), 111 * hudBarScale, 38 * hudBarScale + 20, hudContainer, relPos.IGNOREMARGIN);
 	xpBar.mask = xpMask;
+	xpText = GetObj(new PIXI.Text(xp / targetXP * 100 + "%", hudStyle), xpBar.x + xpBar.width / 2, xpBar.y + 1, app.stage, relPos.IGNOREMARGIN);
+    
+    //Boy Genius face icon
+    playerIcon = GetObj(GetSprite("faceNormal", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN); 
 
-	// Assuming one level
+	// Assuming one level 14, 12
 	track = [{x:9, y:4}, {x:8, y:4}, {x:7, y:4}, {x:6, y:4}, {x:5, y:4}, {x:5, y:5}, {x:4, y:5}, {x:3, y:5}, {x:3, y:6}, {x:3, y:7}, {x:4, y:7}, {x:10, y:4}, {x:11, y:4}, {x:12, y:4}, {x:13, y:4}, {x:14, y:4}, {x:14, y:3}, {x:14, y:2}, {x:15, y:2}, {x:16, y:2}, {x:16, y:8}, {x:15, y:8}, {x:14, y:8}, {x:13, y:8}, {x:13, y:9}, {x:5, y:7}, {x:6, y:7}, {x:7, y:7}, {x:8, y:6}, {x:8, y:7}, {x:9, y:6}, {x:10, y:6}, {x:10, y:7}, {x:10, y:8}, {x:10, y:9}, {x:10, y:10}, {x:11, y:10}, {x:12, y:10}, {x:13, y:10}, {x:13, y:11}, {x:13, y:12}, {x:13, y:13}, {x:12, y:13}, {x:11, y:13}, {x:10, y:13}, {x:9, y:13}, {x:8, y:13}, {x:8, y:12}, {x:7, y:12}, {x:6, y:12}, {x:6, y:11}, {x:6, y:10}, {x:6, y:9}, {x:5, y:9}, {x:4, y:9}, {x:4, y:10}, {x:4, y:11}, {x:4, y:12}, {x:3, y:13}, {x:2, y:13}, {x:4, y:13}, {x:4, y:14}, {x:4, y:15}, {x:4, y:16}, {x:5, y:16}, {x:6, y:16}, {x:6, y:15}, {x:7, y:15}, {x:8, y:15}, {x:9, y:15}, {x:10, y:15}, {x:10, y:16}, {x:10, y:17}, {x:10, y:18}, {x:9, y:18}, {x:8, y:18}, {x:7, y:18}, {x:6, y:18}, {x:5, y:18}, {x:4, y:18}, {x:3, y:18}, {x:12, y:14}, {x:12, y:15}, {x:12, y:16}, {x:213, y:16}, {x:14, y:16}, {x:15, y:16}, {x:15, y:15}, {x:15, y:14}, {x:15, y:13}, {x:616, y:13}, {x:17, y:13}, {x:17, y:8}, {x:17, y:2}, {x:2, y:2}, {x:3, y:2}, {x:4, y:2}, {x:5, y:2}, {x:6, y:2}, {x:7, y:2}, {x:8, y:2}, {x:8, y:3}, {x:13, y:16}, {x:16, y:13}/*, {x:2, y:18}*/];
-	let trackV = [{x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:1}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:1, y:0}, {x:1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:0, y:-1}, {x:1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:-1}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:-1}, {x:0, y:-1}, {x:0, y:-1}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:1, y:0}, {x:1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:1, y:0}, {x:1, y:0}, {x:0, y:-1}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:0, y:1}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:-1}, {x:0, y:-1}, {x:0, y:-1}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:-1, y:0}, {x:0, y:1}, {x:-1, y:0}, {x:-1, y:0}, {x:-1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:1, y:0}, {x:0, y:1}, {x:0, y:1}, {x:-1, y:0}, {x:-1, y:0}, /*{x:-1, y:0}*/];
+	let trackV = [{x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:1.5, y:0}, {x:1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:0, y:-1.5}, {x:1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:-1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:-1.5}, {x:0, y:-1.5}, {x:0, y:-1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:1.5, y:0}, {x:1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:1.5, y:0}, {x:1.5, y:0}, {x:0, y:-1.5}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:-1.5}, {x:0, y:-1.5}, {x:0, y:-1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:0, y:1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:-1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:1.5, y:0}, {x:0, y:1.5}, {x:0, y:1.5}, {x:-1.5, y:0}, {x:-1.5, y:0}, /*{x:-1.5, y:0}*/];
 	
 	let trackAnim = [];
 
 	for(let i = 0; i < 27; i++){
 		trackAnim.push(PIXI.Texture.fromFrame(i + ".png"));
 	}
+
+	waitingForNextWave = false;
 
 	for(let i = 0; i < track.length; i++){
 		let x = track[i].x;
@@ -252,7 +516,7 @@ function StartGame2(){
 	compostB = GetObj(GetSprite("compost", .5, .5, 1.25, 1.25), sidebarUnit * 1.05, uiMargin / 2, app.stage, relPos.SIDEBAR);
 	compostB.interactive = true;
 	compostB.buttonMode = true;
-	compostB.on('pointerdown', function(){wantToPlace = towerTypes.COMPOST;})
+	compostB.on('pointerdown', function(){wantToPlace = towerTypes.COMPOST; GetPlaceIcon();})
 			.on('pointerover', function(){compostB.scale.x *= 1.2; compostB.scale.y *= 1.2;})
 			.on('pointerout', function(){compostB.scale.x /= 1.2; compostB.scale.y /= 1.2;});
 	
@@ -260,9 +524,11 @@ function StartGame2(){
 	compostText.anchor.set(.5, .5);
 
 	donateB = GetObj(GetSprite("donate", .5, .5, 1.25, 1.25), sidebarUnit * 2.23, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	donateBLock = GetObj(GetSprite("donate", .5, .5, 1.3, 1.3, 0x000000), sidebarUnit * 2.23, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	donateBLock.interactive = true;
 	donateB.interactive = true;
 	donateB.buttonMode = true;
-	donateB.on('pointerdown', function(){wantToPlace = towerTypes.DONATION;})
+	donateB.on('pointerdown', function(){wantToPlace = towerTypes.DONATION; GetPlaceIcon();})
 			.on('pointerover', function(){donateB.scale.x *= 1.2; donateB.scale.y *= 1.2;})
 			.on('pointerout', function(){donateB.scale.x /= 1.2; donateB.scale.y /= 1.2;});
 	
@@ -270,51 +536,82 @@ function StartGame2(){
 	donateText.anchor.set(.5, .5);
 
 	recycleB = GetObj(GetSprite("recycle", .5, .5, 1.25, 1.25), sidebarUnit * 3.41, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	recycleBLock = GetObj(GetSprite("recycle", .5, .5, 1.3, 1.3, 0x000000), sidebarUnit * 3.41, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	recycleBLock.interactive = true;
 	recycleB.interactive = true;
 	recycleB.buttonMode = true;
-	recycleB.on('pointerdown', function(){wantToPlace = towerTypes.RECYCLE;})
+	recycleB.on('pointerdown', function(){wantToPlace = towerTypes.RECYCLE; GetPlaceIcon();})
 			.on('pointerover', function(){recycleB.scale.x *= 1.2; recycleB.scale.y *= 1.2;})
 			.on('pointerout', function(){recycleB.scale.x /= 1.2; recycleB.scale.y /= 1.2;});
 	
-	recycleText = GetObj(new PIXI.Text("Recycle: $650", hudStyle), recycleB.x, recycleB.y + unit, app.stage, relPos.IGNOREMARGIN);
+	recycleText = GetObj(new PIXI.Text("Recycle: $700", hudStyle), recycleB.x, recycleB.y + unit, app.stage, relPos.IGNOREMARGIN);
 	recycleText.anchor.set(.5, .5);
 
 	animalsB = GetObj(GetSprite("animals", .5, .5, 1.25, 1.25), sidebarUnit * 4.59, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	animalsBLock = GetObj(GetSprite("animals", .5, .5, 1.3, 1.3, 0x000000), sidebarUnit * 4.59, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	animalsBLock.interactive = true;
 	animalsB.interactive = true;
 	animalsB.buttonMode = true;
-	animalsB.on('pointerdown', function(){wantToPlace = towerTypes.ANIMALS;})
+	animalsB.on('pointerdown', function(){wantToPlace = towerTypes.ANIMALS; GetPlaceIcon();})
 			.on('pointerover', function(){animalsB.scale.x *= 1.2; animalsB.scale.y *= 1.2;})
 			.on('pointerout', function(){animalsB.scale.x /= 1.2; animalsB.scale.y /= 1.2;});
 	
-	animalsText = GetObj(new PIXI.Text("Animals: $770", hudStyle), animalsB.x, animalsB.y - unit, app.stage, relPos.IGNOREMARGIN);
+	animalsText = GetObj(new PIXI.Text("Feed: $1000", hudStyle), animalsB.x, animalsB.y - unit, app.stage, relPos.IGNOREMARGIN);
 	animalsText.anchor.set(.5, .5);
 
 	purifierB = GetObj(GetSprite("purify", .5, .5, 1.25, 1.25), sidebarUnit * 5.77, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	purifierBLock = GetObj(GetSprite("purify", .5, .5, 1.3, 1.3, 0x000000), sidebarUnit * 5.77, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	purifierBLock.interactive = true;
 	purifierB.interactive = true;
 	purifierB.buttonMode = true;
-	purifierB.on('pointerdown', function(){wantToPlace = towerTypes.PURIFIER;})
+	purifierB.on('pointerdown', function(){wantToPlace = towerTypes.PURIFIER; GetPlaceIcon();})
 			 .on('pointerover', function(){purifierB.scale.x *= 1.2; purifierB.scale.y *= 1.2;})
 			 .on('pointerout', function(){purifierB.scale.x /= 1.2; purifierB.scale.y /= 1.2;});
 	
-	purifierText = GetObj(new PIXI.Text("Purifier: $900", hudStyle), purifierB.x, purifierB.y + unit, app.stage, relPos.IGNOREMARGIN);
+	purifierText = GetObj(new PIXI.Text("Purify: $1250", hudStyle), purifierB.x, purifierB.y + unit, app.stage, relPos.IGNOREMARGIN);
 	purifierText.anchor.set(.5, .5);
 
 	factoryB = GetObj(GetSprite("factory", .5, .5, .9, .9), sidebarUnit * 6.95, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	factoryBLock = GetObj(GetSprite("factory", .5, .5, .95, .95, 0x000000), sidebarUnit * 6.95, uiMargin / 2, app.stage, relPos.SIDEBAR);
+	factoryBLock.interactive = true;
 	factoryB.interactive = true;
 	factoryB.buttonMode = true;
-	factoryB.on('pointerdown', function(){wantToPlace = towerTypes.FACTORY;})
+	factoryB.on('pointerdown', function(){wantToPlace = towerTypes.FACTORY; GetPlaceIcon();})
 			.on('pointerover', function(){factoryB.scale.x *= 1.2; factoryB.scale.y *= 1.2;})
 			.on('pointerout', function(){factoryB.scale.x /= 1.2; factoryB.scale.y /= 1.2;});
 	
-	factoryText = GetObj(new PIXI.Text("Factory: $1200", hudStyle), factoryB.x, factoryB.y - unit, app.stage, relPos.IGNOREMARGIN);
+	factoryText = GetObj(new PIXI.Text("Process: $1500", hudStyle), factoryB.x, factoryB.y - unit, app.stage, relPos.IGNOREMARGIN);
 	factoryText.anchor.set(.5, .5);
 
-	/* Proto */ wantToPlace = "";
+	wantToPlace = "";
+	toPlaceIcon = false;
 
 	foodContainer = new PIXI.particles.ParticleContainer(10000, {scale:true, position:true, rotation:true, uvs:false, alpha:false});
 	app.stage.addChild(foodContainer);
 
 	app.ticker.add(delta => Update(delta)); // Defines the function that gets called every frame
+}
+
+function GetPlaceIcon(){
+	Destroy(toPlaceIcon);
+	toPlaceIcon = false;
+
+	if(wantToPlace == towerTypes.COMPOST){ // Cheap & takes in anything but liquids, but is slow & doesn't make much
+		toPlaceIcon = GetObj(GetSprite("compost", .5, .5, 1.25, 1.25), mousePos.x, mousePos.y, app.stage, relPos.IGNOREMARGIN);
+	}else if(wantToPlace == towerTypes.ANIMALS){ // Ravenously devours meat
+		toPlaceIcon = GetObj(GetSprite("animals", .5, .5, 1.25, 1.25), mousePos.x, mousePos.y, app.stage, relPos.IGNOREMARGIN);
+	}else if(wantToPlace == towerTypes.FACTORY){ // A mass-processing machine that accepts anything but meat, only processing a few at a time. Isn't very profitable
+		toPlaceIcon = GetObj(GetSprite("factory", .55, .55, .9, .9), mousePos.x, mousePos.y, app.stage, relPos.IGNOREMARGIN);
+	}else if(wantToPlace == towerTypes.DONATION){ // More expensive & picky than composting, but is faster & worth more
+		toPlaceIcon = GetObj(GetSprite("donate", .5, .5, 1.25, 1.25), mousePos.x, mousePos.y, app.stage, relPos.IGNOREMARGIN);
+	}else if(wantToPlace == towerTypes.RECYCLE){
+		toPlaceIcon = GetObj(GetSprite("recycle", .5, .5, 1.25, 1.25), mousePos.x, mousePos.y, app.stage, relPos.IGNOREMARGIN);
+	}else if(wantToPlace == towerTypes.PURIFIER){
+		toPlaceIcon = GetObj(GetSprite("purify", .5, .5, 1.25, 1.25), mousePos.x, mousePos.y, app.stage, relPos.IGNOREMARGIN);
+	}
+
+	toPlaceIcon.alpha = .75;
+	TogglePlacemat(true);
 }
 
 const foodProcessDist = 4 * 4;
@@ -323,29 +620,110 @@ const foodTransferSpeed = 2.5;
 const popupSpeed = -1;
 const popupDuration = .4;
 
+const minBetweenIntake = 15;
+
 function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes across multiple frames (ie: movement / rotation) should be multiplied by delta to scale properly w/ low FPS
 	elapsed += secondsPerFrame * delta;
     mousePos = app.renderer.plugins.interaction.mouse.global;
 
-	if(lives > 0){ // time:0, type:foodTypes.FRUIT, startRate:80, endRate:60, length:60
-		for(let i = popups.length - 1; i >= 0; i--){
-			if(popups[i].elapsed >= popupDuration){
-				Destroy(popups[i]);
-				popups.splice(i, 1);
-			}else{
-				popups[i].elapsed += secondsPerFrame * delta;
-				popups[i].y += popupSpeed * delta;
-			}
+	for(let i = popups.length - 1; i >= 0; i--){
+		if(popups[i].elapsed >= popupDuration){
+			Destroy(popups[i]);
+			popups.splice(i, 1);
+		}else{
+			popups[i].elapsed += secondsPerFrame * delta;
+			popups[i].y += popupSpeed * delta;
 		}
-		
+	}
+
+	if(toPlaceIcon != false){
+		toPlaceIcon.x = mousePos.x;
+		toPlaceIcon.y = mousePos.y;
+	}
+	
+	if(lives > 0){ // time:0, type:foodTypes.FRUIT, startRate:80, endRate:60, length:60
 		for(let i = inProgress.length - 1; i >= 0; i--){
 			if(inProgress[i].time + inProgress[i].length < elapsed){
 				inProgress.splice(i, 1);
+				
+				if(wavePos >= waves[wave].length && !waitingForNextWave){
+					waitingForNextWave = true;
 
-				console.log("waveEntry finished!");
+					if(donateBLock != false && wave >= donateUnlockAfter){
+						Destroy(donateBLock);
+						donateBLock = false;
+					}
+
+					if(recycleBLock != false && wave >= recyclerUnlockAfter){
+						Destroy(recycleBLock);
+						recycleBLock = false;
+					}
+
+					if(animalsBLock != false && wave >= animalsUnlockAfter){
+						Destroy(animalsBLock);
+						recycleBLock = false;
+					}
+
+					if(purifierBLock != false && wave >= purifierUnlockAfter){
+						Destroy(purifierBLock);
+						purifierBLock = false;
+					}
+
+					if(factoryBLock != false && wave >= factoryUnlockAfter){
+						Destroy(factoryBLock);
+						factoryBLock = false;
+					}
+	
+					nextWaveB = GetObj(GetSprite("nextWave", 1, 1, 1, 1), unit * 18, unit * 18, app.stage, relPos.USEMARGIN);
+					nextWaveB.interactive = true;
+					nextWaveB.buttonMode = true;
+					nextWaveB.on('pointerdown', function(){
+								waitingForNextWave = false;
+								Destroy(this);
+								playerIcon = GetObj(GetSprite("faceHappy3", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+
+								wave++;
+                        if(wave == 1) {        
+                        PIXI.Loader.add("stage1", "../Pixi/images/town2.png")
+
+                        //stageImg = GetObj(GetSprite("stage1", 0, 0, 1, 1));
+                        //stageImg.zOrder = -1;
+                            	//stageImg.interactive = true;
+	//stageImg.buttonMode = false;
+	//stageImg.on('pointerdown', function(){Destroy(toPlaceIcon); toPlaceIcon = false; TogglePlacemat(false);});
+	//BuildPlacemat();
+                            
+                        }
+                                                if(wave == 2) {        
+                        stageImg = GetObj(GetSprite("stage2", 0, 0, 1, 1));
+                        }
+                                                if(wave == 3) {        
+                        stageImg = GetObj(GetSprite("stage3", 0, 0, 1, 1));
+                        }
+                                                if(wave == 4) {        
+                        stageImg = GetObj(GetSprite("stage4", 0, 0, 1, 1));
+                        }
+                                                if(wave == 5) {        
+                        stageImg = GetObj(GetSprite("stage5", 0, 0, 1, 1));
+                        }
+								wavePos = 0;
+								elapsed = 0;
+								waveText.text = "Wave: " + (wave + 1);
+
+								for(let i = food.length - 1; i >= 0; i--){
+									GetPopup("+ $1", food[i].x, food[i].y, 1, 1, 0x00FF00);
+									AdjustMoney(1);
+									Destroy(food[i]);
+								}
+
+								food = [];
+								})
+						 	 .on('pointerover', function(){this.scale.set(1.1, 1.1);})
+							 .on('pointerout', function(){this.scale.set(1 / 1.1, 1 / 1.1);});
+				}
 			}else{
 				if(inProgress[i].next < elapsed){
-					GetFood(inProgress[i].type, 16.5 * unit, (1.3 + Math.random() * .6) * unit); // TODO: Implement different "from"'s
+					GetFood(inProgress[i].type, inProgress[i].from);
 	
 					inProgress[i].next = elapsed + Lerp(inProgress[i].startRate, inProgress[i].endRate, (elapsed - inProgress[i].time) / inProgress[i].length);
 				}
@@ -359,16 +737,18 @@ function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes acr
 					inProgress[inProgress.length - 1].next = 0;
 
 					wavePos++;
-					elapsed = 0;
-				}
-			}else if(inProgress.length == 0){
-				wave++;
-				wavePos = 0;
-				
-				console.log("Next wave!");
+				}/*else{
+					console.log("Next wave in " + (Math.round((waves[wave][wavePos].time - elapsed) * 100) / 100));
+				}*/
 			}
 		}else{
-			// TODO: Infinite waves
+			for(let i = 0; i < (wave / 600) % 10; i++){
+				let r = Math.random(0, 4.9999999999999);
+				GetFood(foodTypes.ANY, r > .4 ? 4 : r > .3 ? 3 : r > .2 ? 2 : r > .1 ? 1 : 0);
+			}
+
+			wave++;
+			waveText = GetObj(new PIXI.Text("Wave: " + wave, hudStyle), 225, 5, app.stage, relPos.IGNOREMARGIN);
 		}
 		
 		// TODO: Properly centre food along tracks
@@ -378,11 +758,12 @@ function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes acr
 					Destroy(food[i]);
 					food.splice(i, 1);
 					AdjustLives(-1);
+					GetPopup("-1", garbage.x, garbage.y - unit * 3 / 4, 1, 1, 0xFF0000);
 				}else{
 					for(j = 0; j < track.length; j++){
 						if(Math.pow(track[j].x - food[i].x, 2) + Math.pow(track[j].y - food[i].y, 2) <= maxDistSqrd){ // Move if near track
-							food[i].x += track[j].vx * delta;
-							food[i].y += track[j].vy * delta;
+							food[i].x += track[j].vx * delta * 2;
+							food[i].y += track[j].vy * delta * 2;
 						}
 					}
 				}	
@@ -428,7 +809,7 @@ function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes acr
 				}
 				
 				AdjustScore(towers[j].value);
-				GetPopup("+" + towers[j].value, towers[j].x, towers[j].y - unit * 3 / 4, 1, 1, 0x000000);
+				GetPopup("+" + towers[j].value, towers[j].x, towers[j].y - unit * 3 / 4, 1, 1, 0x00FF00);
 			}
 
 			towers[j].finish.scale.x = (towers[j].finished.reduce(function(total, num){return total + num;}) * towers[j].processTime) / towers[j].totalProcess * unit;
@@ -437,10 +818,10 @@ function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes acr
 			
 			// TODO: Display currently-being-processed foods
 			
-			if(towers[j].ready < 3){
-				towers[j].ready++;
+			if(towers[j].ready > 0){
+				towers[j].ready--;
 			}else{ // Checks if any applicable foods are in range, and if so, begins processing them
-				for(i = 0; i < food.length && towers[j].ready == 3; i++){
+				for(i = 0; i < food.length && towers[j].ready <= 0; i++){
 					if(food[i].towerTarget === false){
 						let l = towers[j].allow.findIndex(function(element){
 							return element == foodTypes.ANY || food[i].type == element || food[i].subType == element;
@@ -456,7 +837,7 @@ function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes acr
 							towers[j].curr[l].push(0);
 							food[i].towerTarget = {x:towers[j].x, y:towers[j].y};
 							towers[j].currCount++;
-							towers[j].ready = 0;
+							towers[j].ready = Math.max(minBetweenIntake, towers[j].atOnce / towers[j].processTime);
 						}
 					}
 				}
@@ -469,122 +850,138 @@ function Update(delta){ // Note: Runs at/up to 60fps. Any real-world changes acr
     if(typeof timer == 'number'){
             
     		if(timer >= 0){
+            password = 50;    
 			timer--; 
-               			    for (var x = 0; x <= 100; x++) {
-         for (var y = 0; y <= 30; y++) {            
-              moneyContents[x][y].rotation += 0.05 * delta;
-              moneyContents[x][y].y += 3.2;
-
-                }
-    } 
-		}
-				if(timer <= 0){
-
-			    for (var x = 0; x <= 100; x++) {
+                for (var x = 0; x <= 100; x++) {
+                    for (var y = 0; y <= 30; y++) {            
+                    moneyContents[x][y].rotation += 0.05 * delta;
+                    moneyContents[x][y].y += 3.2;
+                    }
+                } 
+                
+            }
+            if(timer <= 0){
+                for (var x = 0; x <= 100; x++) {
                 //moneyContents[x] =  new Array();
-        for (var y = 0; y <= 30; y++) {
-            Destroy(moneyContents[x][y]);          
-	          
-    }
-    } 
+                    for (var y = 0; y <= 30; y++) {
+                    Destroy(moneyContents[x][y]);          
+                    }
+                } 
             timer = "Done";
             //delete moneyContents;
-		}
+		  }
     }
 }
 
 function PlaceTower(){
+	Destroy(toPlaceIcon);
+	toPlaceIcon = false;
+	buildX = this.x;
+	buildY = this.y;
+	TogglePlacemat();
+
 	if(lives > 0){
 		var tower = false;
-		let x = (Math.floor(mousePos.x / unit) + .5) * unit;
-		let y = (Math.floor(mousePos.y / unit) + .5) * unit;
+		let x = this.x;
+		let y = this.y;
 
 		if(wantToPlace == towerTypes.COMPOST){ // Cheap & takes in anything but liquids, but is slow & doesn't make much
 			if(Buy(250)){
 				tower = GetObj(GetSprite("compost", .5, .5, 1.25, 1.25), x, y, app.stage, relPos.IGNOREMARGIN);
 				tower.allow = [foodTypes.ANY];
 				tower.ignore = [foodTypes.LIQUID];
-				tower.max = [5]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
+				tower.max = [20]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
 				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
 				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
-				tower.atOnce = 5; // Amount of concurrent users
+				tower.atOnce = 20; // Amount of concurrent users
 				tower.processTime = 360; // Frames required to process one food item
-				tower.value = 85; // Amount of score and money gained when all maxes have been met
+				tower.value = 80; // Amount of score and money gained when all maxes have been met
+				tower.cost = 250;
 			}
-		}else if(wantToPlace == towerTypes.ANIMALS){ // Ravenously devours meat
-			if(Buy(770)){
+		}else if(wantToPlace == towerTypes.ANIMALS){ // Consume meat & bread at a high rate
+			if(Buy(1000)){
 				tower = GetObj(GetSprite("animals", .5, .5, 1.25, 1.25), x, y, app.stage, relPos.IGNOREMARGIN);
-				tower.allow = [foodTypes.MEAT];
+				tower.allow = [foodTypes.MEAT, foodTypes.BREAD];
 				tower.ignore = [];
-				tower.max = [4]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
+				tower.max = [16]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
 				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
 				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
-				tower.atOnce = 4; // Amount of concurrent users
-				tower.processTime = 20; // Frames required to process one food item
-				tower.value = 80; // Amount of score and money gained when all maxes have been met
+				tower.atOnce = 16; // Amount of concurrent users
+				tower.processTime = 40; // Frames required to process one food item
+				tower.value = 100; // Amount of score and money gained when all maxes have been met
+				tower.cost = 1000;
 			}
 		}else if(wantToPlace == towerTypes.FACTORY){ // A mass-processing machine that accepts anything but meat, only processing a few at a time. Isn't very profitable
-			if(Buy(1200)){
+			if(Buy(1500)){
 				tower = GetObj(GetSprite("factory", .55, .55, .9, .9), x, y, app.stage, relPos.IGNOREMARGIN);
 				tower.allow = [foodTypes.FRUIT, foodTypes.VEGETABLE, foodTypes.BONE, foodTypes.OIL];
 				tower.ignore = [];
-				tower.max = [30]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
+				tower.max = [120]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
 				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
 				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
-				tower.atOnce = 2; // Amount of concurrent users
-				tower.processTime = 30; // Frames required to process one food item
-				tower.value = 700; // Amount of score and money gained when all maxes have been met
+				tower.atOnce = 8; // Amount of concurrent users
+				tower.processTime = 15; // Frames required to process one food item
+				tower.value = 300; // Amount of score and money gained when all maxes have been met
+				tower.cost = 1500;
 			}
 		}else if(wantToPlace == towerTypes.DONATION){ // More expensive & picky than composting, but is faster & worth more
 			if(Buy(400)){
 				tower = GetObj(GetSprite("donate", .5, .5, 1.25, 1.25), x, y, app.stage, relPos.IGNOREMARGIN);
 				tower.allow = [foodTypes.FRUIT, foodTypes.VEGETABLE];
 				tower.ignore = [];
-				tower.max = [2]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
+				tower.max = [8]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
 				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
 				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
-				tower.atOnce = 1; // Amount of concurrent users
-				tower.processTime = 45; // Frames required to process one food item
-				tower.value = 60; // Amount of score and money gained when all maxes have been met
+				tower.atOnce = 2; // Amount of concurrent users
+				tower.processTime = 40; // Frames required to process one food item
+				tower.value = 35; // Amount of score and money gained when all maxes have been met
+				tower.cost = 400;
 			}
 		}else if(wantToPlace == towerTypes.RECYCLE){
-			if(Buy(650)){
+			if(Buy(700)){
 				tower = GetObj(GetSprite("recycle", .5, .5, 1.25, 1.25), x, y, app.stage, relPos.IGNOREMARGIN);
 				tower.allow = [foodTypes.FRUIT, foodTypes.VEGETABLE, foodTypes.BREAD, foodTypes.WATER];
-				tower.ignore = [];
-				tower.max = [5]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
-				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
-				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
-				tower.atOnce = 1; // Amount of concurrent users
-				tower.processTime = 60; // Frames required to process one food item
-				tower.value = 100; // Amount of score and money gained when all maxes have been met
-			}
-		}else if(wantToPlace == towerTypes.PURIFIER){
-			if(Buy(900)){
-				tower = GetObj(GetSprite("purify", .5, .5, 1.25, 1.25), x, y, app.stage, relPos.IGNOREMARGIN);
-				tower.allow = [foodTypes.WATER];
 				tower.ignore = [];
 				tower.max = [20]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
 				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
 				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
-				tower.atOnce = 2; // Amount of concurrent users
-				tower.processTime = 20; // Frames required to process one food item
-				tower.value = 200; // Amount of score and money gained when all maxes have been met
+				tower.atOnce = 4; // Amount of concurrent users
+				tower.processTime = 145; // Frames required to process one food item
+				tower.value = 175; // Amount of score and money gained when all maxes have been met
+				tower.cost = 700;
+			}
+		}else if(wantToPlace == towerTypes.PURIFIER){
+			if(Buy(1250)){
+				tower = GetObj(GetSprite("purify", .5, .5, 1.25, 1.25), x, y, app.stage, relPos.IGNOREMARGIN);
+				tower.allow = [foodTypes.WATER];
+				tower.ignore = [];
+				tower.max = [80]; // If just one entry, then all entries in .allow will contribute towards the same max count, otherwise, individual maxes will be used
+				tower.finished = [0]; // MUST contain a 0 for every entry in .max[]
+				tower.curr = [[]]; // MUST contain an empty array for every entry in .max[]
+				tower.atOnce = 40; // Amount of concurrent users
+				tower.processTime = 200; // Frames required to process one food item
+				tower.value = 225; // Amount of score and money gained when all maxes have been met
+				tower.cost = 1250;
 			}
 		}
 
 		if(tower != false){
+			GetPopup("-" + tower.cost, tower.x, tower.y - unit * 3 / 4, 1, 1, 0xFF0000);
+
 			tower.type = wantToPlace;
 			tower.currCount = 0;
+			//console.log("Tower placed at " + tower.x + " " + tower.y);
 			tower.totalProcess = tower.max.reduce(function(total, num){return total + num;}) * tower.processTime;
 			tower.finish = GetObj(GetSprite("whiteBox", 0, 1, unit, 5, 0x00FF00), tower.x - unit / 2, tower.y + unit / 2 - 1, app.stage, relPos.IGNOREMARGIN);
 			tower.progress = GetObj(GetSprite("whiteBox", 0, 1, unit, 5, 0xFF0000), tower.x - unit / 2, tower.y + unit / 2 - 1, app.stage, relPos.IGNOREMARGIN);
-			tower.ready = 3;
+			tower.ready = 0;
 			tower.interactive = true;
 			tower.buttonMode = true;
 			tower.on('pointerdown', function(){
 						towers.splice(towers.indexOf(this), 1);
-						
+						AdjustMoney(Math.ceil(this.cost * sellRate));
+						GetPopup("+" + Math.ceil(this.cost * sellRate), this.x, this.y - unit * 3 / 4, 1, 1, 0x00FF00);
+
 						Destroy(this.finish);
 						Destroy(this.progress);
 						Destroy(this);
@@ -595,13 +992,11 @@ function PlaceTower(){
 			towers.push(tower);
 		}
 	}
-
-
 }
 
 function Buy(cost){
 	if(money < cost){
-		console.log("PLAYER CANNOT AFFORD $" + cost);
+		GetPopup("Cannot afford $" + cost + "!", buildX, buildY - unit * 3 / 4, 1, 1, 0xFF0000);
 
 		return false;
 	}else{
@@ -612,30 +1007,77 @@ function Buy(cost){
 	}
 }
 
-//	Proto{
+function BuildPlacemat(){ // Helps laying spaces
+	const pos = [{x:460, y:220}, {x:420, y:220}, {x:380, y:220}, {x:500, y:220}, {x:500, y:180}, {x:540, y:140}, {x:580, y:140}, {x:620, y:140}, {x:620, y:220}, {x:580, y:220}, {x:500, y:140}, {x:580, y:260}, {x:580, y:300}, {x:540, y:300}, {x:500, y:300}, {x:460, y:300}, {x:420, y:300}, {x:380, y:300}, {x:340, y:300}, {x:340, y:220}, {x:340, y:180}, {x:340, y:140}, {x:300, y:140}, {x:220, y:140}, {x:260, y:140}, {x:100, y:140}, {x:140, y:140}, {x:180, y:140}, {x:100, y:220}, {x:140, y:220}, {x:180, y:220}, {x:220, y:220}, {x:260, y:220}, {x:300, y:300}, {x:260, y:300}, {x:220, y:300}, {x:220, y:340}, {x:260, y:340}, {x:180, y:340}, {x:140, y:340}, {x:140, y:260}, {x:100, y:260}, {x:60, y:260}, {x:60, y:300}, {x:60, y:340}, {x:60, y:380}, {x:60, y:420}, {x:100, y:420}, {x:140, y:420}, {x:180, y:420}, {x:220, y:420}, {x:260, y:420}, {x:300, y:420}, {x:340, y:420}, {x:340, y:380}, {x:420, y:340}, {x:420, y:380}, {x:420, y:420}, {x:420, y:460}, {x:460, y:460}, {x:460, y:420}, {x:460, y:380}, {x:500, y:380}, {x:540, y:380}, {x:580, y:380}, {x:620, y:380}, {x:620, y:460}, {x:580, y:460}, {x:540, y:460}, {x:540, y:500}, {x:540, y:540}, {x:540, y:580}, {x:540, y:620}, {x:540, y:660}, {x:580, y:580}, {x:620, y:580}, {x:620, y:660}, {x:620, y:700}, {x:620, y:740}, {x:580, y:780}, {x:540, y:780}, {x:500, y:780}, {x:460, y:780}, {x:500, y:700}, {x:540, y:700}, {x:500, y:660}, {x:460, y:540}, {x:420, y:540}, {x:380, y:540}, {x:340, y:540}, {x:340, y:500}, {x:340, y:460}, {x:260, y:460}, {x:260, y:500}, {x:260, y:540}, {x:300, y:540}, {x:180, y:500}, {x:180, y:540}, {x:180, y:580}, {x:180, y:620}, {x:220, y:620}, {x:260, y:620}, {x:180, y:660}, {x:220, y:660}, {x:260, y:660}, {x:180, y:700}, {x:300, y:660}, {x:340, y:660}, {x:380, y:660}, {x:420, y:660}, {x:420, y:580}, {x:380, y:580}, {x:340, y:580}, {x:420, y:700}, {x:420, y:740}, {x:420, y:780}, {x:420, y:820}, {x:340, y:780}, {x:340, y:740}, {x:300, y:740}, {x:260, y:740}, {x:260, y:780}, {x:300, y:780}, {x:220, y:780}, {x:180, y:780}, {x:140, y:780}, {x:100, y:780}, {x:100, y:740}, {x:100, y:700}, {x:100, y:660}, {x:100, y:580}, {x:100, y:500}, {x:100, y:540}, {x:100, y:460}];
 
-function TrackBuilder(){ // Helps laying track
-	var pos = {x:this.x / unit, y:this.y / unit};
+	placemat = [];
 
-	if(!track.includes(pos)){
-		track.push(pos);
-		GetObj(GetSprite("whiteBox", 0, 0, unit, unit, 0x999999), pos.x * unit, pos.y * unit);
-		console.log(", {x:" + pos.x + ", y:" + pos.y + "}");
+	for(let i = 0; i < pos.length; i++){
+		let space = GetObj(GetSprite("whiteBox", .5, .5, unit * .8, unit * .8, 0xFF0000), pos[i].x, pos[i].y, app.stage, relPos.IGNOREMARGIN);
+		space.alpha = .666 / 2;
+		space.interactive = true;
+		space.buttonMode = true;
+		space.on("pointerdown", PlaceTower);
+		placemat.push(space);
+	}
+
+	TogglePlacemat();
+}
+
+function TogglePlacemat(){
+	if(placemat[0].alpha < .2 || forceOn){
+		for(let i = 0; i < placemat.length; i++){
+			placemat[i].alpha = .666 / 2;
+			placemat[i].interactive = true;
+			placemat[i].buttonMode = true;
+		}
+	}else{
+		for(let i = 0; i < placemat.length; i++){
+			placemat[i].alpha = 0;
+			placemat[i].interactive = false;
+			placemat[i].buttonMode = false;
+		}
 	}
 }
 
-//	Proto}
+function TogglePlacemat(forceTo){
+	if(forceTo){
+		for(let i = 0; i < placemat.length; i++){
+			placemat[i].alpha = .666 / 2;
+			placemat[i].interactive = true;
+			placemat[i].buttonMode = true;
+		}
+	}else{
+		for(let i = 0; i < placemat.length; i++){
+			placemat[i].alpha = 0;
+			placemat[i].interactive = false;
+			placemat[i].buttonMode = false;
+		}
+	}
+}
 
 function AdjustScore(increaseBy){
-	score += increaseBy;
+	playerIcon = GetObj(GetSprite("faceHappy1", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+    
+    score += increaseBy;
 	scoreText.text = score;
 	money += increaseBy;
 	moneyText.text = money;
 
 	xp += increaseBy;
+    
+    //Show chewing face when XP increases to certain values.
+    
+    if(xp >= targetXP / 2) {
+        playerIcon = GetObj(GetSprite("faceC1", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+    }
 
 	if(xp >= targetXP){
+    	playerIcon = GetObj(GetSprite("faceHappy2", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+        
 		xp = 0;
+		AdjustMoney(1000);
+		GetPopup("+ $1000!", xpBar.x, xpBar.y, 1, 1, 0xFF0000);
 
 		switch(targetXP){
 			case(1000):
@@ -645,15 +1087,31 @@ function AdjustScore(increaseBy){
 	}else{
 		xpMask.scale.x = Math.max(0, hudBarScale * (xp / targetXP));
 	}
+
+	xpText.text = Math.floor(xp / targetXP * 100) + "%";
 }
 
 function AdjustLives(increaseBy){
 	lives += increaseBy;
 	livesText.text = lives;
+	hpText.text = Math.ceil(lives / startLives * 100) + "%";
 
 	hpMask.scale.x = Math.max(0, hudBarScale * (lives / startLives));
 
+    if (lives >= 4) {
+        playerIcon = GetObj(GetSprite("faceSad1", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+    }
+        if (lives < 4) {
+        playerIcon = GetObj(GetSprite("faceSad2", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+    }
+        if (lives < 2) {
+        playerIcon = GetObj(GetSprite("faceSad3", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN);
+    }
+    
 	if (lives <= 0) {
+        
+        playerIcon = GetObj(GetSprite("faceFail", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN); 
+        
         var gameOverText = new PIXI.Text('Game Over!', {
 			fontWeight: 'bold',
 			fontSize: 60,
@@ -664,7 +1122,7 @@ function AdjustLives(increaseBy){
 			strokeThickness: 6
 		});
     
-        var scored = new PIXI.Text('You Scored: ' + score, {
+        var scored = new PIXI.Text('You Scored: ' + score + '!\n Share Your Record On Facebook!', {
 			fontWeight: 'bold',
 			fontSize: 30,
 			fontFamily: 'Arial',
@@ -673,19 +1131,62 @@ function AdjustLives(increaseBy){
 			stroke: '#FFFFFF',
 			strokeThickness: 6
 		});
+        
+        var textureButton = PIXI.Texture.fromImage("../pixi/images/face.png");
+        
+        var shareButton = new PIXI.Sprite(textureButton);
+        shareButton.buttonMode = true;
+        shareButton.anchor.set(0.5);
+        shareButton.x = app.screen.width / 2 -100;
+        shareButton.y = app.screen.height / 2 + 250;
+        shareButton.interactive = true;
+        shareButton.buttonMode = true;
+
 		
    		gameOverText.anchor.set(0.5);
 		gameOverText.x = app.screen.width / 2;
 		gameOverText.y = app.screen.height / 2;
 		scored.anchor.set(0.5);
 		scored.x = app.screen.width / 2;
-		scored.y = app.screen.height / 2 + 70;
-
+		scored.y = app.screen.height / 2 + 100;
+        
+        app.stage.addChild(shareButton);
 		app.stage.addChild(gameOverText);
 		app.stage.addChild(scored);
 		app.ticker.remove(Update);
     }
 }
+
+function onButtonDown() {
+    this.isdown = true;
+}
+
+function onButtonUp() {
+    this.isdown = false;
+    if (this.isOver) {
+        //this.texture = textureButtonOver;
+    }
+    else {
+        //this.texture = textureButton;
+    }
+}
+
+function onButtonOver() {
+    this.isOver = true;
+    if (this.isdown) {
+        return;
+    }
+    //this.texture = textureButtonOver;
+}
+
+function onButtonOut() {
+    this.isOver = false;
+    if (this.isdown) {
+        //return;
+    }
+   // this.texture = textureButton;
+}
+
 
 function GetSprite(name, anchorX = 0, anchorY = 0, scaleX = 1, scaleY = 1, tint = 0xFFFFFF){
 	let sprite = new PIXI.Sprite(PIXI.loader.resources[name].texture);
@@ -710,6 +1211,7 @@ function GetPopup(text, posX, posY, scaleX = 1, scaleY = 1, tint = 0xFFFFFF){
 	popup.scale.set(scaleX, scaleY);
 	popup.elapsed = 0;
 	popup.anchor.set(.5, .5);
+	popup.tint = tint;
 
 	popups.push(popup);
 }
@@ -721,7 +1223,7 @@ function setScore() {
 	document.getElementById("scoreForm2").value = getScore();
 }
 
-function GetFood(subType, posX, posY){
+function GetFood(subType, from){
 	let obj;
 	let type;
 	//let obj = GetObj(GetSprite(foodNames[subType], .5, .5, foodScale, foodScale), posX, posY, foodContainer);
@@ -818,8 +1320,22 @@ function GetFood(subType, posX, posY){
 	obj.scale.set(foodScale, foodScale);
 	obj.interactiveChildren = false;
 
-	obj.x = posX;
-	obj.y = posY + uiMargin;
+	if(from == 0){
+		obj.x = 16.5 * unit;
+		obj.y = (1.3 + Math.random() * .6) * unit + uiMargin;
+	}else if(from == 1){
+		obj.x = 1.5 * unit;
+		obj.y = (1.3 + Math.random() * .6) * unit + uiMargin;
+	}else if(from == 2){
+		obj.x = 16.5 * unit;
+		obj.y = (7.3 + Math.random() * .6) * unit + uiMargin;
+	}else if(from == 3){
+		obj.x = 16.5 * unit;
+		obj.y = (12.3 + Math.random() * .6) * unit + uiMargin;
+	}else if(from == 4){
+		obj.x = 1.5 * unit;
+		obj.y = (12.3 + Math.random() * .6) * unit + uiMargin;
+	}
 
 	foodContainer.addChild(obj);
 	food.push(obj);
@@ -832,10 +1348,12 @@ function Lerp(a, b, t){
 }
 
 function Destroy(obj){
-	obj.parent.removeChild(obj);
+	if(obj.parent != undefined) obj.parent.removeChild(obj);
 }
 
 function checkKeyInput(key) {
+   
+        
         if (key.keyCode === 89 && password == 4)    {
             password = 0;
             startEasterEgg();
@@ -852,6 +1370,7 @@ function checkKeyInput(key) {
         if (key.keyCode === 77)    {
 			password = 1;
         }
+        
 }
 
 function AdjustMoney(adjustBy){
@@ -873,6 +1392,8 @@ function getMoney(){
 
 function startEasterEgg() {       
 	
+    playerIcon = GetObj(GetSprite("faceGrin", 0, 0, hudBarScale, hudBarScale), 6 * hudBarScale, 6 * hudBarScale + 20, app.stage, relPos.IGNOREMARGIN); 
+    
     moneyContents = new Array();
     
     AdjustMoney(10000);
